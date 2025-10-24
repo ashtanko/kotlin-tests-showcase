@@ -1,4 +1,4 @@
-<h1 align="center">Kotlin Base Project Setup</h1></br>
+<h1 align="center">Kotlin Testing Showcase</h1></br>
 
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
@@ -12,26 +12,32 @@
   <a href="https://app.codacy.com/gh/ashtanko/kotlin-app-template/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage"><img alt="Codacy Badge" src="https://app.codacy.com/project/badge/Coverage/4935d531e41241faa0ce25eeddb67533"/></a>
 </p><br>
 
-A simple Github template that lets you create an **Kotlin** project and be up and running in a **few seconds**.
+A comprehensive educational project demonstrating modern testing frameworks, tools, and techniques for Kotlin development.
 
-This template is focused on delivering a project with **static analysis** and **continuous integration** already in
-place.
+## What's Inside
 
-## Features 🦄
+This project provides practical examples of popular testing libraries and frameworks in the Kotlin ecosystem:
 
-- **100% Kotlin-only template**.
-- Kotlin K2 Compiler.
-- Examples of JUnit5 tests.
-- 100% Gradle Kotlin DSL setup.
-- CI Setup with GitHub Actions.
-- Aggressive Kotlin Static Analysis via `detekt`, `ktlint`, `diktat` and `spotless`.
-- Issues Template (bug report + feature request).
-- Documentation Engine for Kotlin via `dokka`
+- **Testing Frameworks**: JUnit, Kotest
+- **Mocking Libraries**: MockK, Mockito
+- **Assertion Libraries**: AssertJ, Hamcrest, Truth
+- **Specialized Tools**: Lincheck (concurrency testing), Turbine (Flow testing)
+- And more...
 
-## Contributing 🤝
+## Purpose
 
-Feel free to open a issue or submit a pull request for any bugs/improvements.
+This repository serves as a learning resource and reference guide for developers looking to:
 
+- Explore different testing approaches in Kotlin
+- Compare various testing frameworks side-by-side
+- Learn best practices for unit, integration, and specialized testing
+- Get hands-on experience with real-world testing scenarios
+
+Each testing framework is demonstrated with practical examples and clear documentation.
+
+## Contributing
+
+Contributions are welcome! Feel free to add new testing frameworks, improve existing examples, or fix issues.
 # detekt
 
 ## Metrics
@@ -48,13 +54,13 @@ Feel free to open a issue or submit a pull request for any bugs/improvements.
 
 ## Complexity Report
 
-* 189 lines of code (loc)
+* 213 lines of code (loc)
 
 * 101 source lines of code (sloc)
 
 * 68 logical lines of code (lloc)
 
-* 63 comment lines of code (cloc)
+* 87 comment lines of code (cloc)
 
 * 15 cyclomatic complexity (mcc)
 
@@ -62,7 +68,7 @@ Feel free to open a issue or submit a pull request for any bugs/improvements.
 
 * 0 number of total code smells
 
-* 62% comment source ratio
+* 86% comment source ratio
 
 * 220 mcc per 1,000 lloc
 
@@ -70,22 +76,30 @@ Feel free to open a issue or submit a pull request for any bugs/improvements.
 
 ## Findings (0)
 
-generated with [detekt version 1.23.8](https://detekt.dev/) on 2025-10-24 17:53:46 UTC
+generated with [detekt version 1.23.8](https://detekt.dev/) on 2025-10-24 18:04:01 UTC
 
 # License
 
 ```xml
-Designed and developed by 2024 ashtanko (Oleksii Shtanko)
+MIT License
 
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
+        Copyright (c) 2025 Oleksii Shtanko
 
-  http://www.apache.org/licenses/LICENSE-2.0
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
 
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
 ```

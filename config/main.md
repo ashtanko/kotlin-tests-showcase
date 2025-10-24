@@ -1,4 +1,4 @@
-<h1 align="center">Kotlin Base Project Setup</h1></br>
+<h1 align="center">Kotlin Testing Showcase</h1></br>
 
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
@@ -12,23 +12,29 @@
   <a href="https://app.codacy.com/gh/ashtanko/kotlin-app-template/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage"><img alt="Codacy Badge" src="https://app.codacy.com/project/badge/Coverage/4935d531e41241faa0ce25eeddb67533"/></a>
 </p><br>
 
-A simple Github template that lets you create an **Kotlin** project and be up and running in a **few seconds**.
+A comprehensive educational project demonstrating modern testing frameworks, tools, and techniques for Kotlin development.
 
-This template is focused on delivering a project with **static analysis** and **continuous integration** already in
-place.
+## What's Inside
 
-## Features 🦄
+This project provides practical examples of popular testing libraries and frameworks in the Kotlin ecosystem:
 
-- **100% Kotlin-only template**.
-- Kotlin K2 Compiler.
-- Examples of JUnit5 tests.
-- 100% Gradle Kotlin DSL setup.
-- CI Setup with GitHub Actions.
-- Aggressive Kotlin Static Analysis via `detekt`, `ktlint`, `diktat` and `spotless`.
-- Issues Template (bug report + feature request).
-- Documentation Engine for Kotlin via `dokka`
+- **Testing Frameworks**: JUnit, Kotest
+- **Mocking Libraries**: MockK, Mockito
+- **Assertion Libraries**: AssertJ, Hamcrest, Truth
+- **Specialized Tools**: Lincheck (concurrency testing), Turbine (Flow testing)
+- And more...
 
-## Contributing 🤝
+## Purpose
 
-Feel free to open a issue or submit a pull request for any bugs/improvements.
+This repository serves as a learning resource and reference guide for developers looking to:
 
+- Explore different testing approaches in Kotlin
+- Compare various testing frameworks side-by-side
+- Learn best practices for unit, integration, and specialized testing
+- Get hands-on experience with real-world testing scenarios
+
+Each testing framework is demonstrated with practical examples and clear documentation.
+
+## Contributing
+
+Contributions are welcome! Feel free to add new testing frameworks, improve existing examples, or fix issues.
