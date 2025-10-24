@@ -265,8 +265,21 @@ dependencies {
             testImplementation(api)
             testImplementation(params)
         }
+        testImplementation(lincheck)
+        testApi(kotlin.coroutines.core)
+        testImplementation(kotlin.coroutines.test)
+        testImplementation(kotlintest.core)
+        testImplementation(kotlintest.junit5)
         testImplementation(assertj)
+        testImplementation(hamcrest)
+        testImplementation(mockk)
         testImplementation(mockito)
         testImplementation(mockito.kotlin)
+        testImplementation(kotest)
+        testImplementation(kotest.assertions)
+        testImplementation(kotest.property)
+        testImplementation(okhttp.mockwebserver)
+        testImplementation(turbine)
+        testImplementation(truth)
     }
 }
