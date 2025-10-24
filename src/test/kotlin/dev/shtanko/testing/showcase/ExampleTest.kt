@@ -22,7 +22,7 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.template
+package dev.shtanko.testing.showcase
 
 import org.junit.jupiter.api.Assertions.assertAll
 import org.junit.jupiter.api.Assertions.assertEquals

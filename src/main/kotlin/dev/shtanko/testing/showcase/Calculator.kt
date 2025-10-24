@@ -22,7 +22,7 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.template
+package dev.shtanko.testing.showcase
 
 import kotlin.math.ln
 import kotlin.math.sqrt

@@ -22,7 +22,7 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.template
+package dev.shtanko.testing.showcase
 
 /**
  * Exception thrown when an attempt to divide by zero occurs.
