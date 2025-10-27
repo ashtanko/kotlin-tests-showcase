@@ -1,2 +1,2 @@
 // https://gradle.org/releases/
-rootProject.name = "kotlin-app-template"
+rootProject.name = "kotlin-tests-showcase"
