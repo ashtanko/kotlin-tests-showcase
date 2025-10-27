@@ -275,6 +275,7 @@ dependencies {
         testImplementation(mockk)
         testImplementation(mockito)
         testImplementation(mockito.kotlin)
+        testImplementation(mockito.kotlin2)
         testImplementation(kotest)
         testImplementation(kotest.assertions)
         testImplementation(kotest.property)

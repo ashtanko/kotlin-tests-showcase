@@ -30,7 +30,8 @@ kotest = "5.9.1"                 # https://kotest.io
 kotlintest = "3.4.2"             # https://mvnrepository.com/artifact/io.kotlintest/kotlintest-core
 assertj = "3.27.6"               # https://mvnrepository.com/artifact/org.assertj/assertj-core | https://assertj.github.io/doc
 mockito = "5.20.0"               # https://mvnrepository.com/artifact/org.mockito/mockito-core
-mockito_kotlin = "2.2.0"         # https://mvnrepository.com/artifact/com.nhaarman.mockitokotlin2/mockito-kotlin
+mockitoKotlin2 = "2.2.0"         # https://mvnrepository.com/artifact/com.nhaarman.mockitokotlin2/mockito-kotlin
+mockitoKotlin = "6.1.0"          # https://github.com/mockito/mockito-kotlin
 mockk = "1.14.6"                 # https://mockk.io | https://central.sonatype.com/search?q=mockk&smo=true
 hamcrest = "3.0"                 # https://hamcrest.org
 turbine = "1.2.1"                # https://github.com/cashapp/turbine/releases
@@ -72,7 +73,8 @@ kotlintest-core = { module = "io.kotlintest:kotlintest-core", version.ref = "kot
 kotlintest-junit5 = { module = "io.kotlintest:kotlintest-runner-junit5", version.ref = "kotlintest" }
 assertj = { module = "org.assertj:assertj-core", version.ref = "assertj" }
 mockito = { module = "org.mockito:mockito-core", version.ref = "mockito" }
-mockito-kotlin = { module = "com.nhaarman.mockitokotlin2:mockito-kotlin", version.ref = "mockito_kotlin" }
+mockito-kotlin2 = { module = "com.nhaarman.mockitokotlin2:mockito-kotlin", version.ref = "mockitoKotlin2" }
+mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockitoKotlin" }
 hamcrest = { module = "org.hamcrest:hamcrest", version.ref = "hamcrest" }
 kotest = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
 kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
