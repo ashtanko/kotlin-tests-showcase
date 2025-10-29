@@ -265,6 +265,7 @@ dependencies {
             testImplementation(api)
             testImplementation(params)
         }
+        testImplementation(junit)
         testImplementation(lincheck)
         testApi(kotlin.coroutines.core)
         testImplementation(kotlin.coroutines.test)
@@ -282,5 +283,6 @@ dependencies {
         testImplementation(okhttp.mockwebserver)
         testImplementation(turbine)
         testImplementation(truth)
+        testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
     }
 }
