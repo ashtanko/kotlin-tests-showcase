@@ -22,9 +22,9 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.junit
+package dev.shtanko.testing.showcase.libs.junit
 
-import dev.shtanko.testing.showcase.junit.TestData.User
+import dev.shtanko.testing.showcase.libs.junit.TestData.User
 import kotlin.test.junit.JUnitAsserter.assertNotSame
 import kotlin.test.junit.JUnitAsserter.assertSame
 import org.junit.jupiter.api.Assertions.assertArrayEquals

@@ -22,31 +22,37 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.junit
+package dev.shtanko.testing.showcase.libs.mockk
 
-import kotlin.random.Random
-import org.junit.jupiter.api.Assertions.assertTrue
+import io.mockk.confirmVerified
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.verify
 import org.junit.jupiter.api.Test
 
-class RandomFunctionGeneratorTest {
+class BasicMockingAndVerificationTest {
+
+    private val mockRepository = mockk<UserRepository>()
+    private val service = UserService(mockRepository)
+
     @Test
-    fun `should generate random numbers within specified range`() {
-        val min = 1
-        val max = 10
-        val iterations = 1000
+    fun `basic mocking and verification example test`() {
+        every { mockRepository.findUserById(1) } returns User(1, "John Doe")
+        val user = service.getUser(1)
+        println(user) // Output: User(id=1, name=John Doe)
+        verify { mockRepository.findUserById(1) }
+        confirmVerified(mockRepository)
+    }
 
-        val randomNumbers = mutableListOf<Int>()
-        repeat(iterations) {
-            randomNumbers.add(Random.nextInt(min, max + 1))
+    private interface UserRepository {
+        fun findUserById(id: Int): User?
+    }
+
+    private data class User(val id: Int, val name: String)
+
+    private class UserService(val repository: UserRepository) {
+        fun getUser(id: Int): User {
+            return repository.findUserById(id) ?: throw IllegalArgumentException("User not found")
         }
-
-        // Basic checks:
-        // 1. Ensure all numbers are within the expected range
-        assertTrue(randomNumbers.all { it in min..max })
-
-        // 2. Perform basic statistical checks (optional)
-        // - Calculate mean and standard deviation
-        // - Compare with expected values for a uniform distribution
-        // (This requires more complex statistical analysis)
     }
 }

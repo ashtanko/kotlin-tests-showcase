@@ -22,7 +22,7 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.junit
+package dev.shtanko.testing.showcase.libs.junit
 
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.AfterEach

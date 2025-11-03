@@ -22,7 +22,7 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.junit
+package dev.shtanko.testing.showcase.libs.junit
 
 import java.time.temporal.ChronoUnit
 import java.time.temporal.TemporalUnit

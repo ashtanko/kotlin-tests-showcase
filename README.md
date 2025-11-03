@@ -42,27 +42,27 @@ Contributions are welcome! Feel free to add new testing frameworks, improve exis
 
 ## Metrics
 
-* 146 number of properties
+* 152 number of properties
 
-* 214 number of functions
+* 220 number of functions
 
-* 70 number of classes
+* 73 number of classes
 
-* 9 number of packages
+* 10 number of packages
 
-* 35 number of kt files
+* 36 number of kt files
 
 ## Complexity Report
 
-* 3,338 lines of code (loc)
+* 3,410 lines of code (loc)
 
-* 1,872 source lines of code (sloc)
+* 1,912 source lines of code (sloc)
 
-* 1,299 logical lines of code (lloc)
+* 1,327 logical lines of code (lloc)
 
-* 993 comment lines of code (cloc)
+* 1,016 comment lines of code (cloc)
 
-* 227 cyclomatic complexity (mcc)
+* 233 cyclomatic complexity (mcc)
 
 * 15 cognitive complexity
 
@@ -70,13 +70,13 @@ Contributions are welcome! Feel free to add new testing frameworks, improve exis
 
 * 53% comment source ratio
 
-* 174 mcc per 1,000 lloc
+* 175 mcc per 1,000 lloc
 
 * 0 code smells per 1,000 lloc
 
 ## Findings (0)
 
-generated with [detekt version 1.23.8](https://detekt.dev/) on 2025-10-29 21:21:07 UTC
+generated with [detekt version 1.23.8](https://detekt.dev/) on 2025-11-03 21:55:13 UTC
 
 # License
 

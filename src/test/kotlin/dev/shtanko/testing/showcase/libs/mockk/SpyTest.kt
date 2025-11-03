@@ -22,37 +22,45 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.mockk
+package dev.shtanko.testing.showcase.libs.mockk
 
-import io.mockk.Runs
 import io.mockk.every
-import io.mockk.just
-import io.mockk.mockk
-import io.mockk.slot
+import io.mockk.spyk
 import io.mockk.verify
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class CapturingArgumentsTest {
-
-    private val repository = mockk<UserRepository>()
+/**
+ * Spies allow you to mix mocks and real objects.
+ */
+class SpyTest {
 
     @Test
-    fun `capturing arguments example test`() {
-        val slot = slot<Int>()
-        every { repository.updateUser(capture(slot), any()) } just Runs
-        updateUser(User(1, "Alice"), repository)
+    fun `test spy example`() {
+        val calculator = spyk(Calculator())
 
-        println("Captured id: ${slot.captured}") // Output: Captured id: 1
-        verify { repository.updateUser(1, "Alice") }
+        // Call the real method
+        assertEquals(5, calculator.add(2, 3))
+
+        // Stub multiply() method
+        every { calculator.multiply(2, 3) } returns 100
+
+        // multiply() will return the stubbed value, but add() remains real
+        assertEquals(100, calculator.multiply(2, 3))
+        assertEquals(5, calculator.add(2, 3))
+
+        // Verify method calls
+        verify { calculator.add(2, 3) }
+        verify { calculator.multiply(2, 3) }
     }
 
-    private data class User(val id: Int, val name: String)
+    private class Calculator {
+        fun add(a: Int, b: Int): Int {
+            return a + b
+        }
 
-    private fun updateUser(user: User, repository: UserRepository) {
-        repository.updateUser(user.id, user.name)
-    }
-
-    private interface UserRepository {
-        fun updateUser(id: Int, name: String)
+        fun multiply(a: Int, b: Int): Int {
+            return a * b
+        }
     }
 }

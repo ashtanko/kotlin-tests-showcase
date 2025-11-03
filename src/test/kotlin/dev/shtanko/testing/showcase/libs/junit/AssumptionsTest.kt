@@ -22,8 +22,23 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.junit
+package dev.shtanko.testing.showcase.libs.junit
 
-class TestSuites {
-    // todo
+import org.junit.jupiter.api.Assumptions.assumeTrue
+import org.junit.jupiter.api.Test
+
+class AssumptionsTest {
+
+    @Test
+    fun testOnlyOnCiServer() {
+        print("ENV: ${System.getenv("ENV")}")
+        assumeTrue("CI" == System.getenv("ENV"))
+    }
+
+    @Test
+    fun testOnlyOnDeveloperWorkstation() {
+        assumeTrue("DEV" == System.getenv("ENV")) {
+            "Aborting test: not on developer workstation"
+        }
+    }
 }

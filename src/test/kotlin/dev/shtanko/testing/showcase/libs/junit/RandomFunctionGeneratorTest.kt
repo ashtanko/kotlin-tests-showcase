@@ -22,8 +22,31 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.junit
+package dev.shtanko.testing.showcase.libs.junit
 
-object TestData {
-    data class User(val id: Long, val name: String)
+import kotlin.random.Random
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
+
+class RandomFunctionGeneratorTest {
+    @Test
+    fun `should generate random numbers within specified range`() {
+        val min = 1
+        val max = 10
+        val iterations = 1000
+
+        val randomNumbers = mutableListOf<Int>()
+        repeat(iterations) {
+            randomNumbers.add(Random.nextInt(min, max + 1))
+        }
+
+        // Basic checks:
+        // 1. Ensure all numbers are within the expected range
+        assertTrue(randomNumbers.all { it in min..max })
+
+        // 2. Perform basic statistical checks (optional)
+        // - Calculate mean and standard deviation
+        // - Compare with expected values for a uniform distribution
+        // (This requires more complex statistical analysis)
+    }
 }

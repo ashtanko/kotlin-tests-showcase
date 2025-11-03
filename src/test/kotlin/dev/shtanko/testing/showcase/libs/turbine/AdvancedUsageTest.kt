@@ -22,7 +22,7 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.turbine
+package dev.shtanko.testing.showcase.libs.turbine
 
 import app.cash.turbine.test
 import app.cash.turbine.turbineScope

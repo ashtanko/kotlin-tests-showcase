@@ -22,23 +22,8 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.mockk
+package dev.shtanko.testing.showcase.libs.junit
 
-import io.mockk.mockk
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
-
-class RelaxedMocksTest {
-
-    @Test
-    fun `relaxed mock example`() {
-        val userRepository = mockk<UserRepository>(relaxed = true)
-        assertEquals("", userRepository.getUser(1))
-    }
-
-    private class UserRepository {
-        fun getUser(id: Int): String {
-            return "Real User $id"
-        }
-    }
+class TestSuites {
+    // todo
 }

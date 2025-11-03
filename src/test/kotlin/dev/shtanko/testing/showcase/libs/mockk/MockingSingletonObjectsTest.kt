@@ -22,15 +22,35 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.junit
+package dev.shtanko.testing.showcase.libs.mockk
 
-import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.RepeatedTest
+import io.mockk.Runs
+import io.mockk.every
+import io.mockk.just
+import io.mockk.mockkObject
+import io.mockk.unmockkObject
+import io.mockk.verify
+import org.junit.jupiter.api.Test
 
-class RepeatedTestsTest {
+class MockingSingletonObjectsTest {
 
-    @RepeatedTest(10)
-    fun succeedingTest() {
-        assertTrue(true)
+    @Test
+    fun `mocking singleton objects example test`() {
+        mockkObject(Logger)
+        every { Logger.log(any()) } just Runs
+
+        doSomething()
+        verify { Logger.log("Action performed") }
+        unmockkObject(Logger)
+    }
+
+    private object Logger {
+        fun log(message: String) {
+            println(message)
+        }
+    }
+
+    private fun doSomething() {
+        Logger.log("Action performed")
     }
 }

@@ -22,50 +22,15 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.turbine
+package dev.shtanko.testing.showcase.libs.junit
 
-import app.cash.turbine.test
-import kotlinx.coroutines.flow.emptyFlow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.test.runTest
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.RepeatedTest
 
-class BasicUsageTest {
+class RepeatedTestsTest {
 
-    @Test
-    fun `basic usage test`() = runTest {
-        val testFlow = flow {
-            emit(1)
-            emit(2)
-            emit(3)
-        }
-
-        testFlow.test {
-            assertEquals(1, awaitItem())
-            assertEquals(2, awaitItem())
-            assertEquals(3, awaitItem())
-            awaitComplete() // Ensures the Flow completes
-        }
-    }
-
-    @Test
-    fun `emptyFlow test`() = runTest {
-        emptyFlow<Int>().test {
-            awaitComplete()
-        }
-    }
-
-    @Suppress("UseCheckOrError")
-    @Test
-    fun `error emission test`() = runTest {
-        flow {
-            emit(throw IllegalStateException("Test Error"))
-        }.test {
-            val error = awaitError()
-            assertTrue(error is IllegalStateException)
-            assertEquals("Test Error", error.message)
-        }
+    @RepeatedTest(10)
+    fun succeedingTest() {
+        assertTrue(true)
     }
 }

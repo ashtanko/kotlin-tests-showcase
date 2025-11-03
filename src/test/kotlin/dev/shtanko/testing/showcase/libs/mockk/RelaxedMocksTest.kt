@@ -22,49 +22,23 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.junit
+package dev.shtanko.testing.showcase.libs.mockk
 
-import org.junit.jupiter.api.AfterAll
-import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.BeforeAll
-import org.junit.jupiter.api.BeforeEach
+import io.mockk.mockk
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class AnnotationsObjectTest {
-    companion object {
-        @BeforeAll
-        @JvmStatic
-        fun setUpAll() {
-            // Example: Load a large dataset or configuration file
-        }
-
-        @AfterAll
-        @JvmStatic
-        fun tearDownAll() {
-            // Example: Close the shared connection pool
-        }
-    }
-
-    @BeforeEach
-    fun init() {
-        println("init")
-        // Example: myService = MyService() // Create a new instance before each test
-    }
+class RelaxedMocksTest {
 
     @Test
-    fun succeedingTest() {
-        assertTrue(true)
+    fun `relaxed mock example`() {
+        val userRepository = mockk<UserRepository>(relaxed = true)
+        assertEquals("", userRepository.getUser(1))
     }
 
-    @Test
-    fun failingTest() {
-        // fail { "a failing test" }
-    }
-
-    @AfterEach
-    fun tearDown() {
-        println("tearDown")
-        // Example: close the database connection
+    private class UserRepository {
+        fun getUser(id: Int): String {
+            return "Real User $id"
+        }
     }
 }

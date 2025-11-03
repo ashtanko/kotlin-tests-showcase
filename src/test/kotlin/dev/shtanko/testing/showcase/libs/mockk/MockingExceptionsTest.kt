@@ -22,33 +22,35 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.mockk
+package dev.shtanko.testing.showcase.libs.mockk
 
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.Test
 
-class MockingFunctionsWithArgumentsTest {
+class MockingExceptionsTest {
 
     private val repository = mockk<UserRepository>()
 
     @Test
-    fun `mocking functions with arguments example test`() {
-        every { repository.saveUser(any()) } returns true
-        val result = addUser(User(1, "Alice"), repository)
-        println(result) // Output: true
+    fun `mocking exceptions example test`() {
+        every { repository.deleteUser(1) } returns false
 
-        verify { repository.saveUser(User(1, "Alice")) }
+        try {
+            deleteUser(1, repository)
+        } catch (e: IllegalArgumentException) {
+            println(e.message) // Output: Delete failed
+        }
+
+        verify { repository.deleteUser(1) }
     }
 
-    private data class User(val id: Int, val name: String)
-
-    private fun addUser(user: User, repository: UserRepository): Boolean {
-        return repository.saveUser(user)
+    private fun deleteUser(id: Int, repository: UserRepository) {
+        require(repository.deleteUser(id)) { "Delete failed" }
     }
 
     private interface UserRepository {
-        fun saveUser(user: User): Boolean
+        fun deleteUser(id: Int): Boolean
     }
 }

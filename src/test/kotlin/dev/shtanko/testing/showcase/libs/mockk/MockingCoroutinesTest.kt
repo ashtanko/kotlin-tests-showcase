@@ -22,23 +22,34 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.junit
+package dev.shtanko.testing.showcase.libs.mockk
 
-import org.junit.jupiter.api.Assumptions.assumeTrue
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.mockk
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
-class AssumptionsTest {
+class MockingCoroutinesTest {
+
+    private val repository = mockk<UserRepository>()
 
     @Test
-    fun testOnlyOnCiServer() {
-        print("ENV: ${System.getenv("ENV")}")
-        assumeTrue("CI" == System.getenv("ENV"))
+    fun `mocking coroutines example test`() = runTest {
+        coEvery { repository.fetchUser() } returns User(1, "Mocked User")
+
+        val user = repository.fetchUser()
+        println(user) // Output: User(id=1, name=Mocked User)
+
+        coVerify { repository.fetchUser() }
     }
 
-    @Test
-    fun testOnlyOnDeveloperWorkstation() {
-        assumeTrue("DEV" == System.getenv("ENV")) {
-            "Aborting test: not on developer workstation"
+
+    private data class User(val id: Int, val name: String)
+
+    private class UserRepository {
+        suspend fun fetchUser(): User {
+            return User(1, "John Doe")
         }
     }
 }

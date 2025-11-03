@@ -22,37 +22,37 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.mockk
+package dev.shtanko.testing.showcase.libs.mockk
 
-import io.mockk.confirmVerified
+import io.mockk.Runs
 import io.mockk.every
+import io.mockk.just
 import io.mockk.mockk
+import io.mockk.slot
 import io.mockk.verify
 import org.junit.jupiter.api.Test
 
-class BasicMockingAndVerificationTest {
+class CapturingArgumentsTest {
 
-    private val mockRepository = mockk<UserRepository>()
-    private val service = UserService(mockRepository)
+    private val repository = mockk<UserRepository>()
 
     @Test
-    fun `basic mocking and verification example test`() {
-        every { mockRepository.findUserById(1) } returns User(1, "John Doe")
-        val user = service.getUser(1)
-        println(user) // Output: User(id=1, name=John Doe)
-        verify { mockRepository.findUserById(1) }
-        confirmVerified(mockRepository)
-    }
+    fun `capturing arguments example test`() {
+        val slot = slot<Int>()
+        every { repository.updateUser(capture(slot), any()) } just Runs
+        updateUser(User(1, "Alice"), repository)
 
-    private interface UserRepository {
-        fun findUserById(id: Int): User?
+        println("Captured id: ${slot.captured}") // Output: Captured id: 1
+        verify { repository.updateUser(1, "Alice") }
     }
 
     private data class User(val id: Int, val name: String)
 
-    private class UserService(val repository: UserRepository) {
-        fun getUser(id: Int): User {
-            return repository.findUserById(id) ?: throw IllegalArgumentException("User not found")
-        }
+    private fun updateUser(user: User, repository: UserRepository) {
+        repository.updateUser(user.id, user.name)
+    }
+
+    private interface UserRepository {
+        fun updateUser(id: Int, name: String)
     }
 }

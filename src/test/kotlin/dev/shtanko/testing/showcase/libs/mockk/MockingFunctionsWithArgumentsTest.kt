@@ -22,34 +22,33 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.mockk
+package dev.shtanko.testing.showcase.libs.mockk
 
-import io.mockk.coEvery
-import io.mockk.coVerify
+import io.mockk.every
 import io.mockk.mockk
-import kotlinx.coroutines.test.runTest
+import io.mockk.verify
 import org.junit.jupiter.api.Test
 
-class MockingCoroutinesTest {
+class MockingFunctionsWithArgumentsTest {
 
     private val repository = mockk<UserRepository>()
 
     @Test
-    fun `mocking coroutines example test`() = runTest {
-        coEvery { repository.fetchUser() } returns User(1, "Mocked User")
+    fun `mocking functions with arguments example test`() {
+        every { repository.saveUser(any()) } returns true
+        val result = addUser(User(1, "Alice"), repository)
+        println(result) // Output: true
 
-        val user = repository.fetchUser()
-        println(user) // Output: User(id=1, name=Mocked User)
-
-        coVerify { repository.fetchUser() }
+        verify { repository.saveUser(User(1, "Alice")) }
     }
-
 
     private data class User(val id: Int, val name: String)
 
-    private class UserRepository {
-        suspend fun fetchUser(): User {
-            return User(1, "John Doe")
-        }
+    private fun addUser(user: User, repository: UserRepository): Boolean {
+        return repository.saveUser(user)
+    }
+
+    private interface UserRepository {
+        fun saveUser(user: User): Boolean
     }
 }

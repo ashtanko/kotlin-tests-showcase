@@ -22,35 +22,49 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.mockk
+package dev.shtanko.testing.showcase.libs.junit
 
-import io.mockk.every
-import io.mockk.mockk
-import io.mockk.verify
+import org.junit.jupiter.api.AfterAll
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class MockingExceptionsTest {
-
-    private val repository = mockk<UserRepository>()
-
-    @Test
-    fun `mocking exceptions example test`() {
-        every { repository.deleteUser(1) } returns false
-
-        try {
-            deleteUser(1, repository)
-        } catch (e: IllegalArgumentException) {
-            println(e.message) // Output: Delete failed
+class AnnotationsObjectTest {
+    companion object {
+        @BeforeAll
+        @JvmStatic
+        fun setUpAll() {
+            // Example: Load a large dataset or configuration file
         }
 
-        verify { repository.deleteUser(1) }
+        @AfterAll
+        @JvmStatic
+        fun tearDownAll() {
+            // Example: Close the shared connection pool
+        }
     }
 
-    private fun deleteUser(id: Int, repository: UserRepository) {
-        require(repository.deleteUser(id)) { "Delete failed" }
+    @BeforeEach
+    fun init() {
+        println("init")
+        // Example: myService = MyService() // Create a new instance before each test
     }
 
-    private interface UserRepository {
-        fun deleteUser(id: Int): Boolean
+    @Test
+    fun succeedingTest() {
+        assertTrue(true)
+    }
+
+    @Test
+    fun failingTest() {
+        // fail { "a failing test" }
+    }
+
+    @AfterEach
+    fun tearDown() {
+        println("tearDown")
+        // Example: close the database connection
     }
 }

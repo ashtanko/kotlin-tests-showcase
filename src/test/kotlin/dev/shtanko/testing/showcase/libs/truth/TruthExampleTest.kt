@@ -22,35 +22,50 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.mockk
+package dev.shtanko.testing.showcase.libs.truth
 
-import io.mockk.Runs
-import io.mockk.every
-import io.mockk.just
-import io.mockk.mockkObject
-import io.mockk.unmockkObject
-import io.mockk.verify
+import com.google.common.truth.Truth.assertThat
 import org.junit.jupiter.api.Test
 
-class MockingSingletonObjectsTest {
+class TruthExampleTest {
+    @Test
+    fun `should return correct result`() {
+        val result = 2 + 2
+        assertThat(result).isEqualTo(4)
+    }
 
     @Test
-    fun `mocking singleton objects example test`() {
-        mockkObject(Logger)
-        every { Logger.log(any()) } just Runs
+    fun testStrings() {
+        val message = "Hello, Truth!"
+        assertThat(message).contains("Truth")
+    }
+}
 
-        doSomething()
-        verify { Logger.log("Action performed") }
-        unmockkObject(Logger)
+class CollectionTruthTest {
+    @Test
+    fun testListContents() {
+        val fruits = listOf("apple", "banana", "orange")
+        assertThat(fruits).containsExactly("banana", "orange", "apple")
     }
 
-    private object Logger {
-        fun log(message: String) {
-            println(message)
-        }
+    @Test
+    fun testMapContents() {
+        val map = mapOf("kotlin" to 2.2, "java" to 21)
+        assertThat(map).containsEntry("kotlin", 2.2)
+        assertThat(map).doesNotContainKey("scala")
+    }
+}
+
+class NullableTruthTest {
+    @Test
+    fun testNullValues() {
+        val name: String? = null
+        assertThat(name).isNull()
     }
 
-    private fun doSomething() {
-        Logger.log("Action performed")
+    @Test
+    fun testNonNull() {
+        val language: String? = "Kotlin"
+        assertThat(language).isNotNull()
     }
 }

@@ -22,7 +22,7 @@
  * SOFTWARE.
 */
 
-package dev.shtanko.testing.showcase.mockito
+package dev.shtanko.testing.showcase.libs.mockito
 
 import java.util.*
 import kotlinx.coroutines.test.runTest
