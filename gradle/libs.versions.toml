@@ -31,7 +31,7 @@ kotlintest = "3.4.2"             # https://mvnrepository.com/artifact/io.kotlint
 assertj = "3.27.6"               # https://mvnrepository.com/artifact/org.assertj/assertj-core | https://assertj.github.io/doc
 mockito = "5.21.0"               # https://mvnrepository.com/artifact/org.mockito/mockito-core
 mockitoKotlin2 = "2.2.0"         # https://mvnrepository.com/artifact/com.nhaarman.mockitokotlin2/mockito-kotlin
-mockitoKotlin = "6.2.0"          # https://github.com/mockito/mockito-kotlin
+mockitoKotlin = "6.2.1"          # https://github.com/mockito/mockito-kotlin
 mockk = "1.14.7"                 # https://mockk.io | https://central.sonatype.com/search?q=mockk&smo=true
 hamcrest = "3.0"                 # https://hamcrest.org
 turbine = "1.2.1"                # https://github.com/cashapp/turbine/releases
