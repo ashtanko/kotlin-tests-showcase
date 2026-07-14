@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.4.0"                # https://github.com/JetBrains/kotlin
+kotlin = "2.4.10"                # https://github.com/JetBrains/kotlin
 coroutines = "1.11.0"            # https://github.com/Kotlin/kotlinx.coroutines
 detekt = "1.23.8"                # https://github.com/detekt/detekt
 dokka = "2.2.0"                  # https://github.com/Kotlin/dokka
