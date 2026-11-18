@@ -1,4 +1,5 @@
 [versions]
+guava = "33.7.2-jre"             # https://github.com/google/guava
 kotlin = "2.4.21"                # https://github.com/JetBrains/kotlin
 coroutines = "1.11.0"            # https://github.com/Kotlin/kotlinx.coroutines
 detekt = "1.23.8"                # https://github.com/detekt/detekt
@@ -36,6 +37,7 @@ truth = "1.4.5"                  # https://central.sonatype.com/artifact/com.goo
 lincheck = "2.39"                # https://github.com/JetBrains/lincheck
 
 [libraries]
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
 # --- Kotlin & Core ---
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
