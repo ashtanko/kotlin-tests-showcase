@@ -1,10 +1,11 @@
 [versions]
+guava = "33.7.2-jre"             # https://github.com/google/guava
 kotlin = "2.4.21"                # https://github.com/JetBrains/kotlin
 coroutines = "1.11.0"            # https://github.com/Kotlin/kotlinx.coroutines
 detekt = "1.23.8"                # https://github.com/detekt/detekt
 dokka = "2.2.0"                  # https://github.com/Kotlin/dokka
 spotless = "8.11.0"               # https://github.com/diffplug/spotless
-dependency = "1.33.0"            # https://github.com/autonomousapps/dependency-analysis-gradle-plugin
+dependency = "3.20.4"            # https://github.com/autonomousapps/dependency-analysis-gradle-plugin
 pitest = "1.19.0"           # https://plugins.gradle.org/plugin/info.solidsoft.pitest | https://search.maven.org/artifact/org.pitest/pitest
 pinterestKtlint = "0.51.0-FINAL" # https://github.com/pinterest/ktlint
 ktlint = "14.2.0"                # https://github.com/JLLeitschuh/ktlint-gradle
@@ -36,6 +37,7 @@ truth = "1.4.5"                  # https://central.sonatype.com/artifact/com.goo
 lincheck = "2.39"                # https://github.com/JetBrains/lincheck
 
 [libraries]
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
 # --- Kotlin & Core ---
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
